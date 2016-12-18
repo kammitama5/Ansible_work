@@ -1,0 +1,97 @@
+Yaml -> key/pair
+start -> man ansible
+
+http://docs.ansible.com/ansible/apt_module.html
+indempotency 
+
+ansible -> agentless
+
+[web]
+target
+
+[debian]
+target
+
+[class:children]
+web
+
+ansible -i hosts -m ping all
+
+-> get response 
+
+-m -> Module 
+
+ansible_connection: local
+==========
+host_vars/localhost.yml ->
+ansible_connection:local
+=======
+group_vars/debian.yml
+ansible_connection: ssh
+ansible_username: admin
+
+==========
+first-play.yml
+
+ansible-playbook -i hosts first-play.yml
+
+=======
+add a user
+
+==============
+
+sites.yml
+include playbook.yml
+
+hosts -hosts
+ansible -> playbook.yml (add user), site.yml(include file)
+uservars -> debaian.yml
+host_vars
+
+find . -> goes through 
+
+
+==============
+nginx.conf.j2
+
+##
+# Basic Settings
+##
+
+sendfile {{nginx_sendfile}};
+tcp_nopush on;
+tcp_nodelay on;
+keepalive_timeout 65;
+types_hash_max_size 2048;
+server_tokens {{ nginx_server_tokens }};
+
+
+
+# server_tokens_off;
+
+# server_names_hash_bucket_size 64;
+# server_
+
+
+
+on -> 
+
+.nginx.conf.j2
+
+#
+
+hmain.yml<handlers>
+
+name: restart nginx -> to match <tasks>
+
+- name: retart nginx
+  service:
+     name: nginx
+	 state: restarted
+	 
+ansible-galaxy -> default roles -> role skeleton
+
+
+
+
+
